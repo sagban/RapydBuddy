@@ -1,13 +1,7 @@
 import  firebase from "firebase/compat/app";
-import "firebase/auth";
-import "firebase/firestore"
-import "firebase/storage"
-import {Redirect, useHistory} from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
 
-
-
-console.log(process.env.REACT_APP_API_KEY)
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -17,25 +11,12 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_ID
   };
 
-
-
-
 // Initialize Firebase
 export const initialise = () => {
     firebase.initializeApp(firebaseConfig);
 }
 
+//intialise firestore
+export const db = getFirestore(initializeApp(firebaseConfig))
 
 
-
-// const googleProvider = new firebase.auth.GoogleAuthProvider();
-
-// export const signInWithGoogle = () => {
-   
-//     auth.signInWithPopup(googleProvider).then((res) => {
-//         // history.push('/products')
-//         console.log(res.user)
-//     }).catch((error)=> {
-//         console.log(error.message)
-//     })
-// }

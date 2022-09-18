@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Header from '../components/Header'
 import '../styles/Home.css'
 import { Navigate, useNavigate } from "react-router-dom";
-
+import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { initialise } from '../utils/util';
 const Home = () => {
+  const [user , setUser ] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(()=> {
+    if(checkLoggedIn()){
+        console.log(userDetails())
+        setUser(userDetails())
+        navigate("/")
+    }else{
+        navigate('/welcome')
+    }
+  }, [])
+
+
   return  (
     <>
     <Header></Header>

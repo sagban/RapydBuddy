@@ -6,7 +6,7 @@
     padding: 1rem 2rem;
 }
 
-.navbar .links a{
+.navbar .links a, span{
     display: inline-flex;
     padding-left: 2rem;
 }

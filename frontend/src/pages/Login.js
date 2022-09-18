@@ -1,20 +1,22 @@
 import React, {useEffect, useState} from "react";
-import Form from "react-bootstrap/Form";
 import Header from "../components/Header";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 import './Login.css'
-// import { auth } from "../utils/util";
 import { initialise } from "../utils/util";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
+import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
 
 const Login = () => {
     const [email , setEmail ] = useState("")
     const [pass, setPass] = useState("")
     const navigate = useNavigate()
-    useEffect(()=> {
-        initialise();
-    })
+
+  useEffect(()=> {
+    initialise()
+    if(checkLoggedIn()){
+        navigate("/")
+    }
+  }, [])
     function handleLogin(e) {
         e.preventDefault()
         console.log("clickeds")
@@ -23,7 +25,7 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            navigate('/home')
+            navigate('/')
             // ...
           })
           .catch((error) => {

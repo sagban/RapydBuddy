@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/Welcome.css'
 import logo from '../images/logo.png'
 import { Navigate, useNavigate } from "react-router-dom";
+import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
 
 const Welcome = () => {
-    const navigate = useNavigate()
+   const navigate = useNavigate()
+   const [user , setUser ] = useState(null)
+
+  useEffect(()=> {
+    if(checkLoggedIn()){
+        console.log(userDetails())
+        setUser(userDetails())
+        navigate("/")
+    }
+  }, [])
     return  (
       <>
 
