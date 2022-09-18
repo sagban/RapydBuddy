@@ -1,8 +1,10 @@
 import React from 'react'
 import Header from '../components/Header'
 import '../styles/Home.css'
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate()
   return  (
     <>
     <Header></Header>
@@ -40,7 +42,7 @@ const Home = () => {
 
 
  </div>
- <button>Create a New Ride</button>
+ <button onClick={e => navigate('/book')}>Create a New Ride</button>
     </div>
     
  

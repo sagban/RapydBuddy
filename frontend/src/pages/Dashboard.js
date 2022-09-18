@@ -1,8 +1,10 @@
 import React from 'react'
 import Header from '../components/Header'
 import '../styles/Dashboard.css'
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   return (
     <>
     <Header></Header>
@@ -29,7 +31,7 @@ const Dashboard = () => {
     </div>
 <div className='btnwrapper'>
   <h3>Share ride with your colleagues today</h3>
-  <button>Share Ride</button>
+  <button  onClick={e => navigate('/')}>Share Ride</button>
 </div>
     </div>
     </>

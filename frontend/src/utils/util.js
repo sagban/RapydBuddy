@@ -1,9 +1,13 @@
-import  firebase from "firebase/app";
+import  firebase from "firebase/compat/app";
 import "firebase/auth";
 import "firebase/firestore"
 import "firebase/storage"
-import {Redirect, useHistory} from "react-router-dom"
+import {Redirect, useHistory} from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+
+
+console.log(process.env.REACT_APP_API_KEY)
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -13,13 +17,16 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_ID
   };
 
-  
+
+
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+export const initialise = () => {
+    firebase.initializeApp(firebaseConfig);
+}
 
 
-export const auth = firebase.auth();
-export const db = firebase.firestore();
+
 
 // const googleProvider = new firebase.auth.GoogleAuthProvider();
 
