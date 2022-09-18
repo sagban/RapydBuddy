@@ -23,3 +23,12 @@ a {
     display: inline-flex;
     font-size: 1.25rem;
 }
+
+button{
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  background-color: #E8BC1F;
+  color: black;
+  border: 1px solid #E8BC1F ;
+}

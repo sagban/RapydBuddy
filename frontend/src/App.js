@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import BookCar from './pages/BookCar';
+import Welcome from './pages/Welcome';
 
 function App() {
   return (
@@ -20,6 +22,12 @@ function App() {
         </Routes>
         <Routes>
           <Route exact path="/login" element={<Login/>}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/book" element={<BookCar/>}></Route>
+        </Routes>
+        <Routes>
+          <Route exact path="/welcome" element={<Welcome/>}></Route>
         </Routes>
       </Router>
     </div>
