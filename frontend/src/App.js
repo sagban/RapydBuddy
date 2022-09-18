@@ -4,22 +4,24 @@ import Home from "./pages/Home";
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import Header from './components/Header'
 
 function App() {
   return (
     <div className="App">
+      <Header></Header>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>}></Route>
+          <Route exact path="/" element={<Home />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/dashboard" element={<Dashboard/>}></Route>
+          <Route exact path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/profile" element={<Profile/>}></Route>
+          <Route exact path="/profile" element={<Profile />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/login" element={<Login/>}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
         </Routes>
       </Router>
     </div>

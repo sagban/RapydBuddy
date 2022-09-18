@@ -3,7 +3,7 @@ import Header from '../components/Header'
 
 const Dashboard = () => {
   return (
-    <Header></Header>
+    <div></div>
   )
 }
 
