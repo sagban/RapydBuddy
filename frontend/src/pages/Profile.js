@@ -3,7 +3,7 @@ import Header from '../components/Header'
 
 const Profile = () => {
   return (
-    <Header></Header>
+    <div></div>
   )
 }
 
