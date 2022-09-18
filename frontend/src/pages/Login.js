@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Form from "react-bootstrap/Form";
+import Header from "../components/Header";
 
 const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <>
+      <Header></Header>
+      <main>
+      
+      </main>
+    </>
+  );
+};
 
-export default Login
+export default Login;

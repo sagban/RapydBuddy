@@ -16,3 +16,10 @@ body {
   background-color: var(--darkbg);
   color: var(--defaultfont);
 }
+
+a {
+    text-decoration: none;
+    color: var(--defaultfont);
+    display: inline-flex;
+    font-size: 1.25rem;
+}
