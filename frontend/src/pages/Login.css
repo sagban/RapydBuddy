@@ -24,6 +24,7 @@ input {
     background-color: transparent;
     width: 100%;
     border: none;
+    outline: 0;
     font-size: 1.25rem;
     border-bottom: 1px solid var(--whiteaccent);
     color: var(--defaultfont);
