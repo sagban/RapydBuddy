@@ -1,7 +1,6 @@
 exports = module.exports = {};
 const rapyd = require('../helpers/rapyd');
 
-const Rapyd = new rapyd();
 const status = {
     OK: 200,
     BADREQUEST: 400
@@ -25,6 +24,7 @@ exports.transfer = (req, res) => {
     const url_path = "/v1/account/transfer";
     const method = "post"
     const body = JSON.stringify(req.body)
+    const Rapyd = new rapyd();
     Rapyd.callAPI(method, url_path, body).then(r => {
         if (r.status === "SUCCESS") {
             return jResp(res, r.status, status.OK, r.data);
@@ -43,6 +43,7 @@ exports.userWallet = (req, res) => {
     const method = "get"
     const body = ''
     if (walletId != "") {
+        const Rapyd = new rapyd();
         Rapyd.callAPI(method, url_path, body).then(r => {
             if (r.status === "SUCCESS") {
                 return jResp(res, r.status, status.OK, r.data);
@@ -65,6 +66,7 @@ exports.walletBallance = (req, res) => {
     const method = "get"
     const body = ''
     if (walletId != "") {
+        const Rapyd = new rapyd();
         Rapyd.callAPI(method, url_path, body).then(r => {
             if (r.status === "SUCCESS") {
                 return jResp(res, r.status, status.OK, r.data);
@@ -87,6 +89,7 @@ exports.walletTransactions = (req, res) => {
     const method = "get"
     const body = ''
     if (walletId != "") {
+        const Rapyd = new rapyd();
         Rapyd.callAPI(method, url_path, body).then(r => {
             if (r.status === "SUCCESS") {
                 return jResp(res, r.status, status.OK, r.data);
