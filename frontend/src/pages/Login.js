@@ -54,7 +54,7 @@ const Login = () => {
             </label>
             <br /><br /><br />
             <center>
-            <button onClick={e => handleLogin(e)}>Log In</button>
+            <button className="button1" onClick={e => handleLogin(e)}>Log In</button>
             </center>
             
             </div>
