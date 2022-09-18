@@ -1,0 +1,18 @@
+:root {
+  --accent: #E8BC1F;
+  --darkbg: #0A0D10;
+  --lightbg: #202122;
+  --whiteaccent: #D9D9D960;
+  --defaultfont: #E4E3DE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--darkbg);
+  color: var(--defaultfont);
+}
