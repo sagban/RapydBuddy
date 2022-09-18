@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import '../styles/Home.css'
 import { Navigate, useNavigate } from "react-router-dom";
 import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { initialise } from '../utils/util';
 const Home = () => {
