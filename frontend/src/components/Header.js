@@ -13,7 +13,7 @@ const Header = () => {
           console.log(userDetails())
           setUser(userDetails())
       }else{
-          navigate('/welcome')
+          // navigate('/welcome')
       }
     }, [])
     

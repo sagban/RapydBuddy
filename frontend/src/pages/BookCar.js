@@ -35,6 +35,7 @@ const BookCar = () => {
         isactive: true,
         members: [],
         remaining_seats: seats,
+        owner: ```${userDetails().email.split("@")[0]}'s ride```
     }
 
 

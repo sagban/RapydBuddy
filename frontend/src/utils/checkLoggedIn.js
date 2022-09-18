@@ -8,6 +8,7 @@ export const checkLoggedIn = () => {
     initialise()
     const auth = getAuth();
     
+    // return true
     if(auth.currentUser){
         return true
     }else {
