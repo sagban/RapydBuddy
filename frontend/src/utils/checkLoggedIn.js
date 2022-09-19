@@ -1,5 +1,6 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { initialise } from "./util";
+import { initialise, db } from "./util";
+import { doc, getDoc} from "firebase/firestore";
 
 
 
@@ -23,4 +24,16 @@ export const userDetails = () => {
     const auth = getAuth();
     
     return auth.currentUser;
+}
+
+export  const  getWalletId = async () => {
+    initialise();
+    const docRef = doc(db, "users", userDetails().email);
+
+    //get data from firebase
+    const value = await getDoc(docRef)
+
+    return value.data()['wallet']  
+    
+    
 }

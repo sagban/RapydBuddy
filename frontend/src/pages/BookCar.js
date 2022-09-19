@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import '../styles/BookCar.css'
 import switchicon from '../images/switch.svg'
 import { doc, setDoc , updateDoc, serverTimestamp } from "firebase/firestore";
-import { userDetails } from '../utils/checkLoggedIn';
+import { userDetails, getWalletId } from '../utils/checkLoggedIn';
 import { initialise, db } from '../utils/util';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const BookCar = () => {
   const uploadData = async (e) => {
     e.preventDefault()
     console.log(src, dest, dateTime, seats, cost)
-    
+    const wallet = await getWalletId()
     
     const data = {
         source: src,
@@ -36,7 +36,8 @@ const BookCar = () => {
         members: [],
         remaining_seats: seats,
         isOwner : true,
-        owner: ```${userDetails().email.split("@")[0]}'s ride```
+        owner: userDetails().email + "'s ride",
+        wallet: wallet
     }
 
 
