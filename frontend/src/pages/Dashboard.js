@@ -50,7 +50,7 @@ const Dashboard = () => {
 
     <>
       <Header></Header>
-      <div className="bookcardiv">
+      <div className="bookcardiv container">
         <div>
           <h3>active rides</h3>
           <br />

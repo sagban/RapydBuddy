@@ -1,11 +1,11 @@
 
 .dashboarddiv{
-    /* background-color: pink; */
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-top: 100px;
 }
 
 .btnwrapper{
@@ -32,11 +32,13 @@
     /* font-size: 1.2rem; */
     font-weight: 600;
     font-size: 1.1rem;
+    margin-bottom: 0px !important;
 }
 
 .places{
     font-size: 0.8rem;
     opacity: 0.8;
+    margin-bottom: 0px !important;
 }
 
 .people{

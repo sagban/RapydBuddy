@@ -13,8 +13,8 @@
 }
 
 body {
-  background-color: var(--darkbg);
-  color: var(--defaultfont);
+  background-color: var(--darkbg) !important;
+  color: var(--defaultfont) !important;
 }
 
 a {

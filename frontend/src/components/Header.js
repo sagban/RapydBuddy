@@ -41,7 +41,7 @@ const Header = () => {
                   <ul class="s-header-v2__nav">
                     <li class="s-header-v2__nav-item"><a href="/dashboard" class="s-header-v2__nav-link">Dashboard</a></li>
                     <li class="s-header-v2__nav-item"><a href="/profile" class="s-header-v2__nav-link">Profile</a></li>
-                    <li className="s-header-v2__nav-item">{user ? <span activeClassName="inactive">{user.email}</span> : <a href="/login" class="s-header-v2__nav-link">Login</a>}</li>
+                    <li className="s-header-v2__nav-item"><a href="/login" class="s-header-v2__nav-link">{user ? <span>{user.email}</span> : <span>Login</span>}</a></li>
                   </ul>
                 </div>
               </div>

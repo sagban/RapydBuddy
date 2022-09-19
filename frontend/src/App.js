@@ -23,10 +23,10 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/profile" element={<Profile />}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
         </Routes>
         <Routes>
-          <Route exact path="/login" element={<Login />}></Route>
+          <Route exact path="/profile" element={<Profile />}></Route>
         </Routes>
         <Routes>
           <Route exact path="/book" element={<BookCar />}></Route>
