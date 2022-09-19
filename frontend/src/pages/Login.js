@@ -35,9 +35,9 @@ const Login = () => {
 
   }
   return (
-    <>
+    <div>
       <Header></Header>
-      <main className="w-75">
+      <main className="w-75 container g-padding-y-80--xs">
         <br /><br />
         <center>
           <h3>Log In </h3>
