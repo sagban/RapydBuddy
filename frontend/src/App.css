@@ -3,7 +3,7 @@
   --darkbg: #0A0D10;
   --lightbg: #202122;
   --whiteaccent: #D9D9D960;
-  --defaultfont: #E4E3DE;
+  --defaultfont: #ddd;
 }
 
 * {
@@ -22,4 +22,13 @@ a {
     color: var(--defaultfont);
     display: inline-flex;
     font-size: 1.25rem;
+}
+
+button{
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  background-color: #E8BC1F;
+  color: black;
+  border: 1px solid #E8BC1F ;
 }

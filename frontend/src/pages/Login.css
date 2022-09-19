@@ -1,0 +1,28 @@
+form {
+    background-color: transparent;
+    max-width: 340px;
+    width: 100%;
+    margin: 6rem auto;
+}
+
+label {
+    color: var(--whiteaccent);
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.button1{
+    width: 100%;
+}
+
+input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: 0;
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--whiteaccent);
+    color: var(--defaultfont);
+}
