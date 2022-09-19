@@ -37,10 +37,10 @@ const Login = () => {
   return (
     <div>
       <Header></Header>
-      <main className="w-75 container g-padding-y-80--xs">
+      <main className="w-75 container g-padding-y-120--xs">
         <br /><br />
         <center>
-          <h3>Log In </h3>
+          <h3 className="g-font-size-36--xs g-margin-t-30--xs">Log In </h3>
         </center>
 
         <form>

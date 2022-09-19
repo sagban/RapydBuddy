@@ -18,7 +18,7 @@ body {
   height: 100%;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
-  color: #222324;
+  color: #ddd;
   line-height: 1.6;
   background-color: #fff;
 }
@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   font-family: Poppins, sans-serif;
   line-height: 1.2;
-  color: #242424;
+  color: #ddd;
   margin-top: 0;
   margin-bottom: .5rem;
 }
@@ -46,7 +46,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-  color: #242424;
+  color: #ddd;
   transition-duration: 200ms;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
@@ -89,11 +89,11 @@ em,
 li {
   font-size: 1rem;
   font-weight: 300;
-  color: #242424;
+  color: #ddd;
 }
 em > a,
 li > a {
-  color: #242424;
+  color: #ddd;
 }
 em > a:hover,
 li > a:hover {
@@ -105,7 +105,7 @@ small {
 label {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #242424;
+  color: #ddd;
   margin-bottom: .25rem;
   width: 100%;
 }
@@ -2272,7 +2272,7 @@ fieldset[disabled] .s-btn {
   margin-bottom: 0 !important;
 }
 .s-portfolio__filter-v1-item:hover {
-  color: #242424 !important;
+  color: #ddd !important;
 }
 .s-portfolio__filter-v1-item.cbp-filter-item-active {
   color: #F7B200 !important;
