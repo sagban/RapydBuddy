@@ -36,3 +36,20 @@ button{
   color: black;
   border: 1px solid #E8BC1F ;
 }
+
+
+.s-header-v2__nav-item a{
+  position: relative;
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-family: Poppins, sans-serif;
+    color: #eee;
+    letter-spacing: 1px;
+    line-height: 4.5rem;
+    text-transform: uppercase;
+    margin: 0 0.9rem;
+    transition-duration: 300ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
