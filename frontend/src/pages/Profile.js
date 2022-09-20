@@ -1,28 +1,78 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
+import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
+import { initialise, db } from '../utils/util';
+import { doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { Navigate, useNavigate } from "react-router-dom";
+import '../styles/Profile.css'
 
 const Profile = () => {
 
   const baseUrl = 'https://rpydbddy-appsvc-01.azurewebsites.net/api/'
-
+  const [ewalletID, setewalletID] = useState(null);
+  const [fName, setfName] = useState(null);
+  const [lname, setlName] = useState(null);
+  const [wallet, setwallet] = useState([]);
+  const [transaction, settransaction] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
-    // getWalletData();
-    // getTransactionHistory();
-    completeTransaction("ewallet_xxx", "ewallet_xxx")
-    // completeTransaction()
+    const isLoggedIn = checkLoggedIn();
+    if (isLoggedIn) {
+      console.log("calling")
+      const docRef = doc(db, "users", userDetails().email);
+
+      //get data from firebase
+      getDoc(docRef).then((value) => {
+        if (value.exists()) {
+          console.log(value.data())
+          setewalletID(value.data()['wallet'])
+          getWalletData(value.data()['wallet']);
+          getTransactionHistory(value.data()['wallet']);
+        }
+
+      });
+
+
+
+      console.log("implement")
+      // completeTransaction("ewallet_xxx", "ewallet_xxx")
+      // completeTransaction()
+
+    } else {
+      // navigate('/')
+    }
   }, [])
 
 
-  const getTransactionHistory = () => {
-    axios.get(`${baseUrl}/wallet-transactions/ewallet_xxx`).then(res => {
-      console.log(res.data)
+  const getTransactionHistory = (ew) => {
+
+    axios.get(`${baseUrl}/wallet-transactions/${ew}`).then(res => {
+      let transactionData = res.data.data.data
+      let temp = []
+      for (let transaction of transactionData) {
+        temp.push({
+          'currency': transaction['currency'],
+          'amount': transaction['amount']
+        })
+      }
+      settransaction(temp)
     })
   }
 
-  const getWalletData = () => {
-    axios.get(`${baseUrl}/user-wallet/ewallet_xxx`).then(res => {
-      console.log(res.data)
+  const getWalletData = (ew) => {
+    axios.get(`${baseUrl}/user-wallet/${ew}`).then(res => {
+      const walletData = res.data.data.data
+      setfName(walletData.first_name)
+      setlName(walletData.last_name)
+      let temp = []
+      for (let wallet of walletData.accounts) {
+        temp.push({
+          'currency': wallet.currency,
+          'amount': wallet.balance
+        })
+      }
+      setwallet(temp)
     })
   }
 
@@ -46,26 +96,39 @@ const Profile = () => {
   return (
     <>
       <Header></Header>
-      <center>
-        <h2>Aakash Shrivastava</h2>
+      <center className="container g-padding-y-120--xs">
         <br /><br />
-        <h3>Wallet</h3>
-        <div className="wallet-parent">
-          <div className="wallet">
-            <label>usd</label>
-            <p>USD 10.00</p>
-          </div>
-        </div>
+        <h2>{fName} {lname}'s profile</h2>
         <br /><br />
-        <h3>Transaction</h3>
+        <h3>wallet</h3>
         <div className="transaction-parent">
           <div className="transaction">
-            <div className="heading">
-              <p>withdrawal</p>
-              <p>-47 USD</p>
-            </div>
+            {wallet.map(item => {
+              return <div className="wallet2">
+                <div style={{ "display": "flex" }}>
+                  <label>{item.currency}</label>
+                  <div style={{ "width": "1rem" }}></div>
+                  <p>{item.amount}</p>
+                </div>
+              </div>
+            })}
           </div>
         </div>
+        <h3>Transactions</h3>
+        <div className="transaction-parent">
+          {transaction.map(item => {
+            return <div className="transaction">
+              <div style={{ "display": "flex" }}>
+                <label>{item.currency}</label>
+                <div style={{ "width": "1rem" }}></div>
+                <p>{item.amount}</p>
+              </div>
+              <p>{(item.amount.toString()[0] == '-') ? "↓" : "↑"} </p>
+            </div>
+          })}
+
+        </div>
+
       </center>
 
     </>
