@@ -1,10 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
+import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
 import { initialise, db } from '../utils/util';
 import { doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { Navigate, useNavigate } from "react-router-dom";
-import { checkLoggedIn, userDetails } from '../utils/checkLoggedIn';
 import '../styles/Profile.css'
 
 const Profile = () => {
@@ -16,11 +16,9 @@ const Profile = () => {
   const [wallet, setwallet] = useState([]);
   const [transaction, settransaction] = useState([]);
   const navigate = useNavigate();
-
   useEffect(() => {
-
-
-    if (checkLoggedIn()) {
+    const isLoggedIn = checkLoggedIn();
+    if (isLoggedIn) {
       console.log("calling")
       const docRef = doc(db, "users", userDetails().email);
 
@@ -42,10 +40,8 @@ const Profile = () => {
       // completeTransaction()
 
     } else {
-      navigate('/welcome')
+      // navigate('/')
     }
-
-
   }, [])
 
 
@@ -100,24 +96,9 @@ const Profile = () => {
   return (
     <>
       <Header></Header>
-      <center>
+      <center className="container g-padding-y-120--xs">
         <br /><br />
         <h2>{fName} {lname}'s profile</h2>
-        <br /><br />
-        <h3>Transactions</h3>
-        <div className="transaction-parent">
-          {transaction.map(item => {
-            return <div className="transaction">
-              <div style={{ "display": "flex" }}>
-                <label>{item.currency}</label>
-                <div style={{ "width": "1rem" }}></div>
-                <p>{item.amount}</p>
-              </div>
-              <p>{(item.amount.toString()[0] == '-') ? "↓" : "↑"} </p>
-            </div>
-          })}
-
-        </div>
         <br /><br />
         <h3>wallet</h3>
         <div className="transaction-parent">
@@ -133,6 +114,21 @@ const Profile = () => {
             })}
           </div>
         </div>
+        <h3>Transactions</h3>
+        <div className="transaction-parent">
+          {transaction.map(item => {
+            return <div className="transaction">
+              <div style={{ "display": "flex" }}>
+                <label>{item.currency}</label>
+                <div style={{ "width": "1rem" }}></div>
+                <p>{item.amount}</p>
+              </div>
+              <p>{(item.amount.toString()[0] == '-') ? "↓" : "↑"} </p>
+            </div>
+          })}
+
+        </div>
+
       </center>
 
     </>

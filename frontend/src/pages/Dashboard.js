@@ -12,19 +12,25 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (checkLoggedIn()) {
-      console.log(userDetails())
-      navigate("/dashboard")
-    } else {
-      navigate('/welcome')
+
+
+    async function fetch() {
+      const isLoggedIn = await checkLoggedIn();
+      if (!isLoggedIn) {
+        // navigate('/')
+      }
+      const email = userDetails().email;
+      getActiveRide(email);
     }
-    getActiveRide()
+
+    fetch();
+
   }, [])
 
 
-  const getActiveRide = () => {
+  const getActiveRide = (email) => {
     initialise()
-    const docRef = doc(db, "users", userDetails().email);
+    const docRef = doc(db, "users", email);
     getDoc(docRef).then((value) => {
       if (value.exists()) {
         console.log(value.data())

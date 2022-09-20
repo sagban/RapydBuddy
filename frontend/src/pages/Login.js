@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import './Login.css'
+import '../styles/Login.css'
 import { initialise } from "../utils/util";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ const Login = () => {
   useEffect(() => {
     initialise()
     if (checkLoggedIn()) {
-      navigate("/")
+      navigate("/home")
     }
   }, [])
   function handleLogin(e) {
@@ -25,7 +25,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate('/')
+        navigate('/home')
         // ...
       })
       .catch((error) => {

@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!checkLoggedIn()) {
-      navigate("/welcome");
+      navigate("/");
     } else {
       getRides()
     }

@@ -39,9 +39,9 @@ const Header = () => {
               <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right" style={{ marginRight: 0 }}>
                 <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
                   <ul class="s-header-v2__nav">
-                    <li class="s-header-v2__nav-item"><a href="/dashboard" class="s-header-v2__nav-link">Dashboard</a></li>
-                    <li class="s-header-v2__nav-item"><a href="/profile" class="s-header-v2__nav-link">Profile</a></li>
-                    <li className="s-header-v2__nav-item"><a href="/login" class="s-header-v2__nav-link">{user ? <span>{user.email}</span> : <span>Login</span>}</a></li>
+                    <li class="s-header-v2__nav-item g-padding-x-5--xs"><NavLink to="/dashboard" class="s-header-v2__nav-link">Dashboard</NavLink></li>
+                    <li class="s-header-v2__nav-item g-padding-x-5--xs"><NavLink to="/profile" class="s-header-v2__nav-link">Profile</NavLink></li>
+                    <li className="s-header-v2__nav-item g-padding-x-5--xs"><NavLink to="/login" class="s-header-v2__nav-link">{user ? <span>{user.email}</span> : <span>Login</span>}</NavLink></li>
                   </ul>
                 </div>
               </div>
