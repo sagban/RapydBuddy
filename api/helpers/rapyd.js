@@ -7,8 +7,8 @@ class Rapyd {
         this.base_url = "https://sandboxapi.rapyd.net";
         this.salt = CryptoJS.lib.WordArray.random(12);                              // Randomly generated for each request.
         this.timestamp = (Math.floor(new Date().getTime() / 1000) - 10).toString(); // Current Unix time (seconds).
-        this.access_key = "8CDA10403E51D0D56B58";                                                       // The access key from Client Portal.
-        this.secret_key = "948f3468779357f1fa20ad1fda36cdecff1a9403508e5fe5e9407ecdc16d880003aa6788a2291674";
+        this.access_key = "XXXXXXXXXXXXXX";                                                       // The access key from Client Portal.
+        this.secret_key = "XXXXXXXXXXXX";
     }
 
     getHeader(http_method, url_path, data) {
